@@ -1,0 +1,24 @@
+.page {
+  width: 1920px;
+  height: 1080px;
+
+  .header {
+    height: 64px;
+  }
+
+  .body {
+    display: flex;
+    height: calc(100vh - 64px);
+
+    .left {
+      width: 400px;
+    }
+    .center {
+      flex-grow: 1;
+    }
+
+    .right {
+      width: 400px;
+    }
+  }
+}
