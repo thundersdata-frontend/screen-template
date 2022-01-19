@@ -28,6 +28,7 @@
     "echarts": "^5.2.2",
     "echarts-for-react": "^3.0.2",
     "jotai": "^1.5.1",
+    "mapbox-gl": "^2.6.1",
     "normalize.css": "^8.0.1",
     "react": "17.x",
     "react-dom": "17.x",
@@ -37,6 +38,7 @@
   "devDependencies": {
     "@commitlint/cli": "^15.0.0",
     "@commitlint/config-conventional": "^15.0.0",
+    "@types/mapbox-gl": "^2.6.0",
     "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.0",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
