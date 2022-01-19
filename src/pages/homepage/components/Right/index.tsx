@@ -9,7 +9,9 @@ type RightData = {
 };
 export default memo(() => {
   const path = useContext(HomepageContext);
-  const { data, refresh } = useRequest(fetchData<RightData>(homepageUrls.left));
+  const { data, refresh } = useRequest(
+    fetchData<RightData>(homepageUrls.right),
+  );
 
   useEffect(() => {
     if (path === homepageUrls.right) {

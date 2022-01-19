@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useWebSocket } from 'ahooks';
 import { ReadyState } from 'ahooks/lib/useWebSocket';
 import { WEBSOCKET_URL } from '@/constant';
@@ -25,11 +25,22 @@ export function useHomepageService() {
   /** 建立连接后立刻发送Token到服务端进行身份认证 */
   useEffect(() => {
     if (readyState === ReadyState.Open) {
-      sendMessage?.(JSON.stringify({ Token: 30001, Event: 'dataChange' }));
+      sendMessage?.(JSON.stringify({ Token: '30001', Event: 'dataChange' }));
     }
   }, [readyState, sendMessage]);
 
+  const path = useMemo(() => {
+    try {
+      if (latestMessage) {
+        const { path } = JSON.parse(latestMessage.data);
+        return path;
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }, [latestMessage]);
+
   return {
-    path: latestMessage?.data,
+    path,
   };
 }
