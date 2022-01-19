@@ -1,37 +1,35 @@
-import { useMemo, useRef } from 'react';
-import { useUnmount, useWebSocket } from 'ahooks';
+import { useEffect } from 'react';
+import { useWebSocket } from 'ahooks';
+import { ReadyState } from 'ahooks/lib/useWebSocket';
+import { WEBSOCKET_URL } from '@/constant';
 
 export function useHomepageService() {
-  const data = useRef<Record<string, any>>({});
+  const { readyState, sendMessage, latestMessage } = useWebSocket(
+    WEBSOCKET_URL,
+    {
+      onOpen() {
+        console.log('和服务端已建立连接');
+      },
+      onMessage(msg) {
+        console.log('收到服务端推送数据： ', msg);
+      },
+      onClose() {
+        console.log('和服务端断开连接');
+      },
+      onError(e) {
+        console.error(e);
+      },
+    },
+  );
 
-  const { readyState, latestMessage } = useWebSocket('ws://localhost:8080');
-
-  data.current = useMemo(() => {
-    if (latestMessage) {
-      try {
-        const { left, right } = JSON.parse(latestMessage.data);
-        const { left: oldLeft } = data.current;
-
-        console.log(oldLeft, left);
-        return {
-          left: {
-            data: (oldLeft?.data ?? []).concat(left.data),
-          },
-          right,
-        };
-      } catch (error) {
-        console.error(error);
-      }
+  /** 建立连接后立刻发送Token到服务端进行身份认证 */
+  useEffect(() => {
+    if (readyState === ReadyState.Open) {
+      sendMessage?.(JSON.stringify({ Token: 30001, Event: 'dataChange' }));
     }
-    return data.current;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [latestMessage, readyState]);
-
-  useUnmount(() => {
-    data.current = {};
-  });
+  }, [readyState, sendMessage]);
 
   return {
-    data: data.current,
+    path: latestMessage?.data,
   };
 }

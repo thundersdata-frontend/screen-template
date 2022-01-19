@@ -1,13 +1,13 @@
 import { createContext } from 'react';
 
-export const HomepageContext = createContext<Record<string, any>>({});
+export const HomepageContext = createContext<string | undefined>(undefined);
 
 export const HomepageProvider = ({
   children,
   value,
 }: {
   children?: React.ReactNode;
-  value: Record<string, any>;
+  value: string | undefined;
 }) => {
   return (
     <HomepageContext.Provider value={value}>

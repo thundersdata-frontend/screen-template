@@ -1,15 +1,19 @@
-import { memo, useContext } from 'react';
-import { HomepageContext } from '../HomepageContext';
+import { homepageUrls } from '@/constant';
+import { memo, useContext, useEffect } from 'react';
+import { HomepageContext } from '../../HomepageContext';
 
 export default memo(() => {
-  const data = useContext(HomepageContext);
-  console.log(data?.left);
+  const path = useContext(HomepageContext);
+
+  useEffect(() => {
+    if (path === homepageUrls.left) {
+      console.log('left');
+    }
+  }, [path]);
+
   return (
     <div>
       <div>left</div>
-      {data?.left?.data?.map((item: any) => (
-        <div key={item.id}>{item.name}</div>
-      ))}
     </div>
   );
 });

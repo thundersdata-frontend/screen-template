@@ -5,13 +5,13 @@ import Header from './components/Header';
 import Left from './components/Left';
 import Center from './components/Center';
 import Right from './components/Right';
-import { HomepageProvider } from './components/HomepageContext';
+import { HomepageProvider } from './HomepageContext';
 
 export default function IndexPage() {
-  const { data } = useHomepageService();
+  const { path } = useHomepageService();
 
   return (
-    <HomepageProvider value={data}>
+    <HomepageProvider value={path}>
       <div className={styles.page}>
         <div className={styles.header}>
           <Header />

@@ -1,13 +1,19 @@
-import { memo, useContext } from 'react';
-import { HomepageContext } from '../HomepageContext';
+import { homepageUrls } from '@/constant';
+import { memo, useContext, useEffect } from 'react';
+import { HomepageContext } from '../../HomepageContext';
 
 export default memo(() => {
-  const data = useContext(HomepageContext);
-  console.log(data.right);
+  const path = useContext(HomepageContext);
+
+  useEffect(() => {
+    if (path === homepageUrls.right) {
+      console.log('hello');
+    }
+  }, [path]);
+
   return (
     <div>
       <div>right</div>
-      <div>{data?.right?.data?.type}</div>
     </div>
   );
 });
