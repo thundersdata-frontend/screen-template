@@ -1,10 +1,15 @@
-import { defineConfig } from 'umi';
+import { defineConfig } from '@umijs/max';
 
 export default defineConfig({
-  nodeModulesTransform: {
-    type: 'none',
-  },
-  routes: [{ path: '/', component: '@/pages/homepage/index' }],
-  fastRefresh: {},
+  request: {},
+  fastRefresh: true,
   mfsu: {},
+  npmClient: 'pnpm',
+  routes: [
+    {
+      path: '/',
+      component: './homepage',
+      exact: true,
+    },
+  ],
 });
