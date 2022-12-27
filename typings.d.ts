@@ -1,3 +1,5 @@
+declare module '*.less';
+
 interface AjaxResponse<T> {
   data: {
     data: T;

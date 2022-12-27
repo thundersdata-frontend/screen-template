@@ -4,12 +4,19 @@ export default defineConfig({
   request: {},
   fastRefresh: true,
   mfsu: {},
+  antd: {},
   npmClient: 'pnpm',
   routes: [
+    { path: '/', redirect: '/homepage' },
     {
       path: '/',
-      component: './homepage',
-      exact: true,
+      component: '@/layouts/BasicLayout',
+      routes: [
+        {
+          path: '/homepage',
+          component: './homepage',
+        },
+      ],
     },
   ],
 });

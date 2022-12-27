@@ -1,0 +1,107 @@
+.container {
+  position: relative;
+  border: 2px solid #2a4a6a;
+  width: 229px;
+  height: 32px;
+
+  :global {
+    .ant-picker-panel-container {
+      overflow: unset !important;
+    }
+
+    .ant-picker-range-arrow {
+      margin-top: -12px;
+    }
+
+    .ant-picker-range-wrapper {
+      position: relative;
+    }
+
+    .ant-picker-dropdown {
+      position: absolute;
+      top: 30px !important;
+      right: 0 !important;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .ant-picker-dropdown-hidden {
+      display: none;
+    }
+
+    .ant-picker {
+      position: absolute;
+      background: linear-gradient(90.14deg, rgb(69 104 227 / 44%) 50.11%, rgb(69 104 227 / 0%) 99.92%);
+      border: none;
+    }
+
+    .ant-picker-suffix {
+      color: #fff;
+    }
+
+    .anticon,
+    input {
+      color: #fff;
+      font-size: 14px;
+
+      &::placeholder {
+        color: #fff;
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.rangePicker {
+  :global {
+    .ant-picker-panels {
+      background: #1e335f;
+      border-bottom: 1px solid #2a4a6a;
+    }
+
+    .ant-picker-cell {
+      color: rgb(255 255 255 / 30%);
+    }
+
+    .ant-picker-header button,
+    .ant-picker-content th,
+    .ant-picker-cell-in-view,
+    .ant-picker-header-view {
+      color: #fff;
+    }
+
+    .ant-picker-range-arrow {
+      &::after {
+        border-color: #1e335f #1e335f transparent transparent;
+      }
+    }
+
+    .ant-picker-cell-in-range {
+      &::before {
+        background: #243b71;
+      }
+    }
+
+    .ant-picker-panel,
+    .ant-picker-header {
+      border-bottom: 1px solid #2a4a6a;
+    }
+
+    .ant-picker-cell-selected {
+      .ant-picker-cell-inner {
+        background: #2f4181;
+      }
+    }
+
+    .ant-picker-cell-in-view.ant-picker-cell-range-end:not(.ant-picker-cell-range-end-single)::before,
+    .ant-picker-cell-in-view.ant-picker-cell-range-start:not(.ant-picker-cell-range-start-single)::before {
+      background: #5d70b0;
+    }
+
+    .ant-picker-cell-in-view.ant-picker-cell-range-end .ant-picker-cell-inner,
+    .ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-cell-inner,
+    .ant-picker-cell-in-view.ant-picker-cell-range-start .ant-picker-cell-inner {
+      background: #2f4181;
+    }
+  }
+}
