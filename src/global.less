@@ -1,6 +1,7 @@
 html {
   height: 100%;
-  /*火狐下隐藏滚动条*/
+
+  /* 火狐下隐藏滚动条 */
   scrollbar-width: none;
 }
 
@@ -9,10 +10,12 @@ body::-webkit-scrollbar {
 }
 
 body {
+  width: 100vw;
   height: 100%;
   overflow-x: auto;
   overflow-y: auto;
   -ms-overflow-style: none;
+
   /** 抗锯齿渲染 */
   -webkit-font-smoothing: antialiased; /* chrome、safari */
   -moz-osx-font-smoothing: grayscale; /* firefox */
@@ -20,6 +23,8 @@ body {
 
 #root {
   height: 100vh;
+  overflow: auto;
+
   input:-webkit-autofill,
   textarea:-webkit-autofill,
   select:-webkit-autofill {
@@ -30,4 +35,67 @@ body {
   img:not([src]) {
     opacity: 0;
   }
+
+  .mapboxgl-control-container {
+    display: none !important;
+  }
+
+  .ant-select {
+    background: linear-gradient(90.14deg, rgb(69 104 227 / 44%) 50.11%, rgb(69 104 227 / 0%) 99.92%);
+    color: #fff;
+    font-size: 16px;
+  }
+
+  .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+    background-color: transparent;
+    border: 2px solid #2a4a6a;
+  }
+
+  .ant-select-disabled {
+    .ant-select-arrow {
+      color: #ccc;
+    }
+
+    .ant-select-selector {
+      background: rgb(0 0 0 / 10%) !important;
+    }
+
+    .ant-select-selection-item {
+      color: #ccc !important;
+    }
+  }
+
+  .ant-select-arrow,
+  .ant-select-item {
+    color: #fff;
+    font-size: 16px;
+  }
+
+  .td-lego-table-container {
+    padding: 0;
+
+    .table-view {
+      padding: 0;
+    }
+  }
+}
+
+.custom-select-dropdown.ant-select-dropdown {
+  background: #1e335f;
+  color: #fff;
+  font-size: 16px;
+  border: 2px solid #2a4a6a;
+
+  .ant-select-item.ant-select-item-option {
+    color: #ddd;
+  }
+
+  .ant-select-item-option-selected:not(.ant-select-item-option-disabled),
+  .ant-select-item-option-active:not(.ant-select-item-option-disabled) {
+    background: linear-gradient(90.14deg, rgb(69 104 227 / 23.8%) 50.11%, rgb(69 104 227 / 12.8%) 99.92%);
+  }
+}
+
+.td-lego-table-content .text {
+  white-space: nowrap;
 }
