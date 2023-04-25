@@ -22,7 +22,6 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "strictNullChecks": true,
-    "suppressImplicitAnyIndexErrors": true,
     "downlevelIteration": true,
     "resolveJsonModule": true,
     "strictPropertyInitialization": true,
@@ -31,23 +30,5 @@
       "@/*": ["src/*"],
       "@@/*": ["src/.umi/*"]
     }
-  },
-  "include": [
-    "mock/**/*",
-    "src/**/*",
-    "config/**/*",
-    ".umirc.ts",
-    "typings.d.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "lib",
-    "es",
-    "dist",
-    "typings",
-    "**/__test__",
-    "test",
-    "docs",
-    "tests"
-  ]
+  }
 }

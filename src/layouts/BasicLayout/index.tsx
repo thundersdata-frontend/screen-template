@@ -1,7 +1,7 @@
-import Layout from 'antd/lib/layout';
-import { Outlet } from 'umi';
+import { Layout } from 'antd';
+import { Outlet } from '@umijs/max';
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from '@/constant';
-import 'antd/dist/antd.css';
+import 'antd/dist/antd.less';
 import styles from './index.module.less';
 import { useEffect, useState } from 'react';
 
