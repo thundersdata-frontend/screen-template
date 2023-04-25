@@ -1,4 +1,5 @@
 import { Select, SelectProps } from 'antd';
+
 import styles from './index.module.less';
 
 export default (props: SelectProps) => {
@@ -8,7 +9,7 @@ export default (props: SelectProps) => {
       <Select
         getPopupContainer={trigger => trigger?.parentElement}
         style={{ width: 160 }}
-        dropdownClassName="custom-select-dropdown"
+        popupClassName="custom-select-dropdown"
         {...restProps}
       >
         {children

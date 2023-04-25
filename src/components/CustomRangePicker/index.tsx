@@ -1,9 +1,11 @@
 import { FC } from 'react';
+
 import { DatePicker } from 'antd';
-import styles from './index.module.less';
 import locale from 'antd/es/date-picker/locale/zh_CN';
 import { RangePickerProps } from 'antd/lib/date-picker';
 import classNames from 'classnames';
+
+import styles from './index.module.less';
 
 const { RangePicker } = DatePicker;
 

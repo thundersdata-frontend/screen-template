@@ -1,5 +1,0 @@
-/scripts
-**/node_modules/**
-_scripts
-/lambda/mock/**
-_test_

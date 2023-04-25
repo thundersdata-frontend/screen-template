@@ -5,6 +5,7 @@
     "start": "max dev",
     "build": "max build",
     "tsc": "tsc -p ./tsconfig.json",
+    "prettier": "prettier --write --cache --cache-strategy metadata \"**/*.{tsx,ts}\"",
     "postinstall": "npx husky install && max setup"
   },
   "config": {
@@ -14,7 +15,6 @@
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
-      "eslint --fix",
       "prettier --write --ignore-unknown"
     ],
     "src/**/*.{css,less}": [
@@ -22,7 +22,7 @@
     ]
   },
   "dependencies": {
-    "@td-design/lego": "^3.0.1",
+    "@td-design/lego": "^3.1.0",
     "@types/echarts": "^4.9.17",
     "@umijs/max": "^4.0.66",
     "ahooks": "^3.7.6",
@@ -36,28 +36,20 @@
   "devDependencies": {
     "@commitlint/cli": "^17.6.1",
     "@commitlint/config-conventional": "^17.6.1",
+    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "@types/react": "^18.0.38",
     "@types/react-dom": "^18.0.11",
-    "@typescript-eslint/eslint-plugin": "^5.59.0",
-    "@typescript-eslint/parser": "^5.59.0",
     "commitizen": "^4.3.0",
     "conventional-changelog-cli": "^2.2.2",
     "conventional-changelog-custom-config": "^0.3.1",
     "cross-env": "^7.0.3",
     "cz-customizable": "^7.0.0",
-    "eslint": "^8.39.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.1",
     "prettier": "^2.8.8",
+    "prettier-plugin-packagejson": "^2.4.3",
     "standard-version": "^9.5.0",
     "stylelint": "^15.6.0",
     "typescript": "^5.0.4"
-  },
-  "resolutions": {
-    "@types/react": "^17.0.39",
-    "@types/react-dom": "^17.0.0"
   }
 }
