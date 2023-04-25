@@ -6,6 +6,7 @@ export default defineConfig({
   mfsu: {},
   antd: {},
   npmClient: 'pnpm',
+  title: '大屏模板',
   routes: [
     { path: '/', redirect: '/homepage' },
     {
