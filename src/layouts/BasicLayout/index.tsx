@@ -1,9 +1,9 @@
 import { Layout } from 'antd';
 import { Outlet } from '@umijs/max';
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from '@/constant';
-import 'antd/dist/antd.less';
 import styles from './index.module.less';
 import { useEffect, useState } from 'react';
+import { useMount } from 'ahooks';
 
 export default function BasicLayout() {
   const [scale, setScale] = useState<number>();
@@ -29,20 +29,24 @@ export default function BasicLayout() {
   };
 
   /** 大屏缩放自适应屏幕 */
-  requestAnimationFrame(() => {
-    function setScreenScale() {
-      const newScale =
-        document.documentElement.clientWidth / document.documentElement.clientHeight < SCREEN_WIDTH / SCREEN_HEIGHT
-          ? document.documentElement.clientWidth / SCREEN_WIDTH
-          : document.documentElement.clientHeight / SCREEN_HEIGHT;
-      const screenDom = document.querySelector('#screen');
-      setScale(newScale);
-      handelDomScale(screenDom, newScale);
-    }
-    setScreenScale();
-    window.onresize = function () {
+  useMount(() => {
+    requestAnimationFrame(() => {
+      function setScreenScale() {
+        const newScale =
+          document.documentElement.clientWidth / document.documentElement.clientHeight < SCREEN_WIDTH / SCREEN_HEIGHT
+            ? document.documentElement.clientWidth / SCREEN_WIDTH
+            : document.documentElement.clientHeight / SCREEN_HEIGHT;
+        const screenDom = document.querySelector('#screen');
+        setScale(newScale);
+        handelDomScale(screenDom, newScale);
+      }
+
       setScreenScale();
-    };
+
+      window.onresize = function () {
+        setScreenScale();
+      };
+    });
   });
 
   return (
