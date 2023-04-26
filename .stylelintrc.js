@@ -9,5 +9,6 @@ module.exports = {
       },
     ],
     'function-no-unknown': null,
+    'property-no-unknown': null,
   },
 };

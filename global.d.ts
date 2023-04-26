@@ -129,3 +129,8 @@ declare module '*.txt' {
   const src: string;
   export default src;
 }
+
+declare const BREAKPOINT: number;
+declare const ECHARTS_COUNT: number;
+declare const PADDING: number;
+declare const ECHARTS_DEFAULT_HEIGHT: number;

@@ -6,6 +6,7 @@ import { ScreenContext } from '@/context';
 
 export default () => {
   const echartsHeight = useContext(ScreenContext);
+
   return (
     <BarLine
       xAxisData={['03月', '04月']}

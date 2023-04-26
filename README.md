@@ -1,15 +1,1 @@
-# umi project
-
-## Getting Started
-
-Install dependencies,
-
-```bash
-$ pnpm i
-```
-
-Start the dev server,
-
-```bash
-$ pnpm start
-```
+# 大屏开发模板
