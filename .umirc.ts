@@ -14,6 +14,7 @@ export default defineConfig({
     ECHARTS_COUNT: 3, // 左右展示的echarts图表数量
     PADDING: 16, // 左右两边的padding
   },
+  outputPath: 'build',
   links: [
     {
       rel: 'apple-touch-icon',
