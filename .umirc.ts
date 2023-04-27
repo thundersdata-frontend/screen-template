@@ -16,8 +16,8 @@ export default defineConfig({
   },
   outputPath: 'build',
   hash: true,
-  base: '/td-design',
-  publicPath: '/td-design/',
+  base: '/screen-template',
+  publicPath: '/screen-template/',
   links: [
     {
       rel: 'apple-touch-icon',
