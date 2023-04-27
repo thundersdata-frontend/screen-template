@@ -15,6 +15,9 @@ export default defineConfig({
     PADDING: 16, // 左右两边的padding
   },
   outputPath: 'build',
+  hash: true,
+  base: '/td-design',
+  publicPath: '/td-design/',
   links: [
     {
       rel: 'apple-touch-icon',
