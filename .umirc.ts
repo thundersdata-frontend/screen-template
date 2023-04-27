@@ -38,13 +38,12 @@ export default defineConfig({
     },
   ],
   routes: [
-    { path: '/', redirect: '/homepage' },
     {
       path: '/',
       component: '@/layouts/BasicLayout',
       routes: [
         {
-          path: '/homepage',
+          path: '/',
           component: './homepage',
         },
       ],
