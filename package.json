@@ -50,5 +50,10 @@
     "prettier-plugin-packagejson": "^2.4.3",
     "standard-version": "^9.5.0",
     "typescript": "^5.0.4"
+  },
+  "packageManager": "pnpm@7.3.0",
+  "engines": {
+    "node": ">=14",
+    "pnpm": ">=7.0.0"
   }
 }
