@@ -3,6 +3,8 @@ import Title from '@/components/Title';
 import { ScreenContext } from '@/context';
 import useCalcHeight from '@/hooks/useCalcHeight';
 
+import Center1 from './components/Center/Center1';
+import Center2 from './components/Center/Center2';
 import Left1 from './components/Left/Left1';
 import Left2 from './components/Left/Left2';
 import Left3 from './components/Left/Left3';
@@ -31,7 +33,10 @@ export default () => {
               <Left3 />
             </CustomLayout.Item>
           </CustomLayout.Left>
-          <CustomLayout.Center>center</CustomLayout.Center>
+          <CustomLayout.Center>
+            <Center1 />
+            <Center2 />
+          </CustomLayout.Center>
           <CustomLayout.Right>
             <CustomLayout.Item>
               <Right1 />

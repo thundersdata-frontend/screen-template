@@ -1,6 +1,7 @@
 .container {
   width: 100%;
   height: 100%;
+  position: relative;
 }
 
 .header {
@@ -17,15 +18,14 @@
     align-items: center;
     justify-content: center;
   }
-
-  .headerIcon {
-    position: absolute;
-    right: 16px;
-    top: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+}
+.headerIcon {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .content {
@@ -58,9 +58,10 @@
   margin-bottom: var(--screen-global-padding);
 }
 
-@media only screen and (max-width: 1360px) {
+@media only screen and (max-width: 1280px) {
   .content {
-    display: block;
+    display: flex;
+    flex-direction: column;
     height: auto;
   }
 
@@ -72,6 +73,16 @@
   }
 
   .center {
-    margin: var(--screen-global-padding) 0;
+    order: 1;
+  }
+  .left {
+    order: 2,
+  }
+  .right {
+    order: 3,
+  }
+
+  .headerIcon {
+    display: none;
   }
 }
