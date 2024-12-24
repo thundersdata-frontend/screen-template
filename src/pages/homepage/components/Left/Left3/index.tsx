@@ -1,15 +1,9 @@
-import { useContext } from 'react';
-
 import { BarLine } from '@td-design/lego';
 
-import { ScreenContext } from '@/context';
-
 export default () => {
-  const echartsHeight = useContext(ScreenContext);
-
   return (
     <BarLine
-      style={{ width: '100%', height: echartsHeight }}
+      style={{ width: '100%', height: 300 }}
       xAxisData={['03月', '04月', '05月', '06月', '07月', '08月']}
       yAxis={[{ name: '万辆' }, { name: '%' }]}
       lineData={{ name: '同比增长率', data: [12, 11, 19, 23, 32, 45] }}
