@@ -4,12 +4,16 @@
  * @作者: 阮旭松
  * @Date: 2023-11-07 11:00:14
  * @LastEditors: 阮旭松
- * @LastEditTime: 2024-12-24 17:45:05
+ * @LastEditTime: 2024-12-24 17:53:33
  */
 import { useEffect, useRef, useState } from 'react';
 
+// 初始缩放比例
+const INITIAL_SCALE = 1;
+
 export function useScreenScale(screenWidth: number, screenHeight: number) {
-  const [scale, setScale] = useState<number>();
+  const [scale, setScale] = useState<number>(INITIAL_SCALE);
+  const [isReady, setIsReady] = useState(false);
   const screenDomRef = useRef<HTMLDivElement | null>(null);
 
   /** 对 echarts 图表进行反缩放，修复 zoom 以后 tooltip 偏移问题 */
@@ -55,5 +59,12 @@ export function useScreenScale(screenWidth: number, screenHeight: number) {
     };
   }, [screenWidth, screenHeight]);
 
-  return { scale, screenDomRef };
+  useEffect(() => {
+    if (scale) {
+      // 当 scale 计算完成后再渲染 Outlet
+      setIsReady(true);
+    }
+  }, [scale]);
+
+  return { isReady, scale, screenDomRef };
 }
