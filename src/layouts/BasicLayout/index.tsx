@@ -6,12 +6,12 @@ import { useScreenScale } from '@/hooks/useScreenScale';
 import styles from './index.module.less';
 
 export default function BasicLayout() {
-  const { screenDomRef } = useScreenScale(SCREEN_WIDTH, SCREEN_HEIGHT);
+  const { scale, screenDomRef } = useScreenScale(SCREEN_WIDTH, SCREEN_HEIGHT);
   return (
     <div className={styles.screenWrapper}>
       <div className={styles.screen} ref={screenDomRef} style={{ width: SCREEN_WIDTH, height: SCREEN_HEIGHT }}>
         <div className={styles.background} />
-        <Outlet />
+        {scale && <Outlet />}
       </div>
     </div>
   );
